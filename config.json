@@ -1,0 +1,22 @@
+{
+    "Feed": {
+        "feedUrl": "https://example.vlgnl.ga/rss.xml",
+        "siteUrl": "https://example.vlgnl.ga",
+        "imageUrl": "https://example.vlgnl.ga/icon.png",
+        "docs": "https://example.vlgnl.ga/rss/docs.html",
+        "author": "VLGNL",
+        "managingEditor": "VLGNL",
+        "webMaster": "VLGNL",
+        "copyright": "2022 VLGNL",
+        "language": "nl",
+        "pubDate": "March 11, 2022 17:00:00 CET",
+        "ttl": 60
+    },
+    "FilesBrowserble": false,
+    "CronJobs": {
+        "FullRescan": "0 0 0 1 * *",
+        "RebuildCache": "0 0 * * * *"
+    },
+    "ArchiveRoot": "./podcasts",
+    "port": 8086
+}
