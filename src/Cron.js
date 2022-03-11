@@ -23,5 +23,6 @@ var GenerateCache = new CronJob.CronJob(
         DB.DBEvents.on('FileScanComplete', () => {
             var files = DB.db.prepare('SELECT * FROM files').all();
             RSS.BuildFeedFromArray(files);
+            RSS.RSS.rebuild();
         })
 }, null, true, null, null, true);

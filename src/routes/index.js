@@ -32,8 +32,7 @@ app.get(":category(/[a-z]+|)/", async function (req, res) {
     }
     res.render("YYYY", {
         Years: await getDirectories(config.options.ArchiveRoot+req.params.category),
-        url: req.originalUrl
-
+        url: req.baseUrl
     });
 });
 
@@ -47,7 +46,7 @@ app.get(":category(/[a-z]+|)/:YYYY([0-9]{4})", async function (req, res) {
         Selected: {
             YYYY: req.params.YYYY
         },
-        url: req.originalUrl
+        url: req.baseUrl
     });
 });
 
@@ -62,7 +61,7 @@ app.get(":category(/[a-z]+|)/:YYYY([0-9]{4})/:MM([0-9]{2})", async function (req
             YYYY: req.params.YYYY,
             MM: req.params.MM
         },
-        url: req.originalUrl
+        url: req.baseUrl
     });
 });
 app.get(":category(/[a-z]+|)/:YYYY([0-9]{4})/:MM([0-9]{2})/:DD([0-9]{2})", async function (req, res) {
@@ -77,7 +76,7 @@ app.get(":category(/[a-z]+|)/:YYYY([0-9]{4})/:MM([0-9]{2})/:DD([0-9]{2})", async
             MM: req.params.MM,
             DD: req.params.DD
         },
-        url: req.originalUrl
+        url: req.baseUrl
     });
 });
 
