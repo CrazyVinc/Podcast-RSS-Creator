@@ -10,7 +10,7 @@ var FullScan = new CronJob.CronJob(
     config.options.CronJobs.FullRescan,
     function () {
         FileScan.FullScan();
-        DB.DBEvents.on('FileScanComplete', () => {
+        DB.DBEvents.once('FileScanComplete', () => {
             var files = DB.db.prepare('SELECT * FROM files').all();
             RSS.BuildFeedFromArray(files);
         })
@@ -20,9 +20,13 @@ var GenerateCache = new CronJob.CronJob(
     config.options.CronJobs.RebuildCache,
     function () {
         FileScan.FastScan();
-        DB.DBEvents.on('FileScanComplete', () => {
+        DB.DBEvents.once('FileScanComplete', () => {
             var files = DB.db.prepare('SELECT * FROM files').all();
             RSS.BuildFeedFromArray(files);
             RSS.RSS.rebuild();
         })
 }, null, true, null, null, true);
+
+module.exports = {
+    FullScan, GenerateCache
+}

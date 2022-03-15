@@ -30,7 +30,6 @@ var array = [];
 FileScan.mg.on('end', (e) => {
     var Matches;
     for (const filename of e) {
-        // console.log(filename);
         Matches = filename.toString().match(REGEX).groups;
         Matches.MM = Matches.MM-1;
         if(Matches.category.endsWith('/')) {

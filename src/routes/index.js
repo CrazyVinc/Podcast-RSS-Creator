@@ -22,6 +22,7 @@ const getFiles = async (source) =>
             .map((dirent) => dirent.name);
 
 app.get("/rss", async function (req, res) {
+    res.set('Content-Type', 'text/xml');
     res.send(RSS.RSS.cache);
 });
 
